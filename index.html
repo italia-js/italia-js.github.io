@@ -8,13 +8,29 @@
     <style>
       body {
         font-family: Courier, monospace;
+        color: #333;
         background: #eee none;
       }
       h2 {
         color: #666;
       }
+      a {
+        color: #333;
+      }
       footer {
         margin-top: 20px;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #eee;
+          background: #333 none;
+        }
+        h2 {
+          color: #999;
+        }
+        a {
+          color: #eee;
+        }
       }
     </style>
   </head>
