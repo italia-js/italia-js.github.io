@@ -29,6 +29,7 @@ export class HeroSection extends LitElement {
       text-align: center;
       padding: 0; /* Removed padding to help with height */
       position: relative;
+      margin-top: 2vh;
     }
 
     .ring-container {
@@ -36,7 +37,7 @@ export class HeroSection extends LitElement {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 3rem 1rem; /* Reduced padding */
+      padding: 1vh 1rem;
     }
 
     .glowing-ring {
@@ -44,8 +45,8 @@ export class HeroSection extends LitElement {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 450px; /* Slightly smaller */
-      height: 450px;
+      width: min(450px, 45vh);
+      height: min(450px, 45vh);
       border-radius: 50%;
       border: 2px solid rgba(189, 0, 255, 0.3);
       box-shadow: 0 0 50px rgba(189, 0, 255, 0.2), inset 0 0 50px rgba(189, 0, 255, 0.2);
@@ -69,8 +70,8 @@ export class HeroSection extends LitElement {
 
     @media (max-width: 600px) {
       .glowing-ring {
-        width: 300px;
-        height: 300px;
+        width: min(300px, 40vh);
+        height: min(300px, 40vh);
       }
     }
 
@@ -78,12 +79,12 @@ export class HeroSection extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.5vh;
       z-index: 1;
     }
 
     .title {
-      font-size: 5rem;
+      font-size: min(5rem, 9vh);
       font-weight: 800;
       margin: 0;
       background: linear-gradient(90deg, #60a5fa, #c084fc, #f472b6);
@@ -98,12 +99,12 @@ export class HeroSection extends LitElement {
     
     @media (min-width: 768px) {
       .title {
-        font-size: 7rem;
+        font-size: min(7rem, 12vh);
       }
     }
 
     .slogan {
-      font-size: 1.5rem;
+      font-size: min(1.5rem, 2.5vh);
       color: #e2e8f0;
       opacity: 0.9;
       margin: 0;
@@ -112,7 +113,7 @@ export class HeroSection extends LitElement {
     }
 
     .cta-container {
-      margin-top: 2rem;
+      margin-top: 2vh;
     }
 
     .cta-button {

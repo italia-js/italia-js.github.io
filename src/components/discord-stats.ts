@@ -68,7 +68,7 @@ export class DiscordStats extends LitElement {
   static styles = css`
     :host {
       display: block;
-      margin: 3rem auto;
+      margin: 10vh auto 0 auto;
       max-width: 600px;
     }
 
@@ -103,7 +103,7 @@ export class DiscordStats extends LitElement {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      padding: 2rem 3rem;
+      padding: 1.5vh 3rem;
       flex: 1;
       justify-content: center;
     }
@@ -121,7 +121,7 @@ export class DiscordStats extends LitElement {
     }
 
     .count {
-      font-size: 2.5rem;
+      font-size: min(2.5rem, 4vh);
       font-weight: 800;
       line-height: 1;
       color: white;

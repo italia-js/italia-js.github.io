@@ -20,13 +20,14 @@ export class ItaliaJs extends LitElement {
     :host {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      height: 100vh;
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 2rem;
       box-sizing: border-box;
       width: 100%;
-      padding-top: 5vh; /* Added top spacing */
+      padding-top: 2vh;
+      overflow: hidden;
     }
 
     main {

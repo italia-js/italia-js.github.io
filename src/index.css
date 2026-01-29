@@ -22,7 +22,8 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
   background-image: url('./assets/bg-space.png');
   background-size: cover;
