@@ -1,0 +1,21 @@
+:root {
+  /* Brand Palette - Retained but shifted for Dark Mode dominance */
+  --color-jet: #323330;
+  --color-blue: #2e86ab;
+  --color-magenta: #a23b72;
+  --color-yellow: #f0db4f;
+  --color-red: #c73e1d;
+
+  /* Space Theme specific */
+  --space-bg: #0b0d17;
+  --space-accent-cyan: #00ffff;
+  --space-accent-purple: #bd00ff;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+
+  /* Theme Defaults */
+  --bg-color: var(--space-bg);
+  --text-color: #ffffff;
+  --primary-color: var(--space-accent-cyan);
+  --secondary-color: var(--space-accent-purple);
+}

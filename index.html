@@ -1,80 +1,23 @@
-<!DOCTYPE html>
-<html lang="it">
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PGGTKB404M"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<!doctype html>
+<html lang="en">
 
-      gtag("config", "G-PGGTKB404M");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Italia JS è La community JavaScript italiana nata da Milano JS. Ci trovi su Discord!"
-    />
-    <title>Italia JS - La community JavaScript italiana</title>
-    <style>
-      body {
-        font-family: Courier, monospace;
-        color: #333;
-        background: #eee none;
-      }
-      h2 {
-        color: #666;
-      }
-      a {
-        color: #333;
-      }
-      iframe {
-        max-width: 100%;
-      }
-      footer {
-        margin-top: 20px;
-      }
-      @media (prefers-color-scheme: dark) {
-        body {
-          color: #eee;
-          background: #333 none;
-        }
-        h2 {
-          color: #999;
-        }
-        a {
-          color: #eee;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>Italia JS</h1>
-      <h2>La community JavaScript italiana</h2>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Italia JS - La community JavaScript italiana</title>
+  <meta name="description"
+    content="Italia JS è la community italiana dedicata a JavaScript. Unisciti a noi su Discord!" />
+  <link rel="stylesheet" href="./src/index.css" />
+  <script type="module" src="/src/italia-js.ts"></script>
+</head>
 
-    <p>Unisciti a noi sul nostro server Discord</p>
-    <iframe
-      src="https://discord.com/widget?id=782921551225028618&theme=dark"
-      width="400"
-      height="250"
-      allowtransparency="true"
-      frameborder="0"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-    ></iframe>
-    <footer>
-      <a href="https://twitter.com/italia_js">Twitter</a> |
-      <a href="https://github.com/italia-js">GitHub</a> |
-      <a href="https://github.com/italia-js/code-of-conduct"
-        >Codice di condotta</a
-      >
-    </footer>
-  </body>
+<body>
+  <div class="star-layer layer-1"></div>
+  <div class="star-layer layer-2"></div>
+  <div class="star-layer layer-3"></div>
+  <div class="star-layer layer-4"></div>
+  <italia-js></italia-js>
+</body>
+
 </html>
