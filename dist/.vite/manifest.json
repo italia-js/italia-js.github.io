@@ -1,0 +1,18 @@
+{
+  "index.html": {
+    "file": "assets/index-DC7C9CdT.js",
+    "name": "index",
+    "src": "index.html",
+    "isEntry": true,
+    "css": [
+      "assets/index-Bo791zt9.css"
+    ],
+    "assets": [
+      "assets/bg-space-u2fNwksu.png"
+    ]
+  },
+  "src/assets/bg-space.png": {
+    "file": "assets/bg-space-u2fNwksu.png",
+    "src": "src/assets/bg-space.png"
+  }
+}
