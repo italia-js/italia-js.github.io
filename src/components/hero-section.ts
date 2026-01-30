@@ -27,7 +27,7 @@ export class HeroSection extends LitElement {
       display: block;
       text-align: center;
       position: relative;
-      margin-top: 5vh;
+      margin-top: 2vh;
       perspective: 1000px;
     }
 
@@ -36,7 +36,7 @@ export class HeroSection extends LitElement {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 4rem 1rem;
+      padding: 2rem 1rem;
       transform-style: preserve-3d;
     }
 
@@ -54,16 +54,16 @@ export class HeroSection extends LitElement {
     }
 
     .hud-ring {
-      width: min(500px, 50vw);
-      height: min(500px, 50vw);
+      width: min(400px, 45vw);
+      height: min(400px, 45vw);
       border-top-color: transparent;
       border-bottom-color: transparent;
       animation: spin 20s linear infinite;
     }
 
     .hud-ring-inner {
-      width: min(350px, 35vw);
-      height: min(350px, 35vw);
+      width: min(280px, 30vw);
+      height: min(280px, 30vw);
       border: 1px dashed var(--neon-magenta);
       animation: spin-reverse 15s linear infinite;
     }
@@ -72,14 +72,14 @@ export class HeroSection extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
       z-index: 1;
       text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
     .title {
       font-family: var(--font-display);
-      font-size: min(5rem, 10vw);
+      font-size: min(4rem, 8vw);
       font-weight: 700;
       margin: 0;
       color: #fff;

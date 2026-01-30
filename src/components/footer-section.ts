@@ -22,7 +22,7 @@ export class FooterSection extends LitElement {
     :host {
       display: block;
       margin-top: auto;
-      padding: 2rem 0;
+      padding: 1rem 0;
       width: 100%;
     }
 
@@ -30,7 +30,7 @@ export class FooterSection extends LitElement {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
       position: relative;
     }
 
