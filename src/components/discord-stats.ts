@@ -68,7 +68,7 @@ export class DiscordStats extends LitElement {
   static styles = css`
     :host {
       display: block;
-      margin: 10vh auto 0 auto;
+      margin: 2vh auto 0 auto;
       max-width: 700px;
       perspective: 1000px;
     }
