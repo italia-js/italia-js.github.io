@@ -69,96 +69,119 @@ export class DiscordStats extends LitElement {
     :host {
       display: block;
       margin: 10vh auto 0 auto;
-      max-width: 600px;
+      max-width: 700px;
+      perspective: 1000px;
     }
 
     .stats-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: var(--glass-bg);
+      backdrop-filter: var(--backdrop-blur);
+      -webkit-backdrop-filter: var(--backdrop-blur);
       padding: 0;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
+      border: var(--glass-border);
+      box-shadow: var(--glass-shadow);
       position: relative;
+      transform: rotateX(10deg);
+      transition: transform 0.3s ease;
     }
-    
-    /* Simulate the gradient glow at the bottom from the image */
-    .stats-card::after {
+
+    .stats-card:hover {
+      transform: rotateX(0deg) scale(1.02);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.2);
+    }
+
+    /* Neon corners */
+    .stats-card::before, .stats-card::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #00ffff, #bd00ff);
-      opacity: 0.7;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--neon-cyan);
+      transition: all 0.3s ease;
+    }
+
+    .stats-card::before {
+      top: -1px;
+      left: -1px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .stats-card::after {
+      bottom: -1px;
+      right: -1px;
+      border-left: none;
+      border-top: none;
     }
 
     .stat-section {
       display: flex;
       align-items: center;
       gap: 1.5rem;
-      padding: 1.5vh 3rem;
+      padding: 2rem 3rem;
       flex: 1;
       justify-content: center;
-    }
-
-    .discord-icon {
-      width: 50px;
-      height: auto;
-      filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+      position: relative;
     }
 
     .stat-content {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centered alignment as requested ("always align to each other") */
+      align-items: center;
     }
 
     .count {
+      font-family: var(--font-mono, monospace);
       font-size: min(2.5rem, 4vh);
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1;
-      color: white;
-      text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     
     .count.online {
-      color: #00ff88; /* Bright Neon Green */
-      text-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+      color: var(--electric-green);
+      text-shadow: 0 0 10px var(--electric-green);
     }
 
     .label {
+      font-family: var(--font-body);
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-top: 0.5rem;
-      color: rgba(255, 255, 255, 0.9);
+      letter-spacing: 2px;
+      margin-top: 0.8rem;
+      color: var(--text-muted);
       font-weight: 500;
-      white-space: nowrap; /* Prevent wrapping */
     }
 
     .divider {
       width: 1px;
-      align-self: stretch;
-      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--neon-magenta), transparent);
     }
     
     .loading {
       padding: 2rem;
-      color: white;
+      color: var(--neon-cyan);
       width: 100%;
       text-align: center;
+      font-family: var(--font-mono, monospace);
+      letter-spacing: 1px;
+      animation: pulse 1s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
     }
 
     @media (max-width: 600px) {
       .stats-card {
         flex-direction: column;
+        transform: none;
       }
       .stat-section {
         width: 100%;
@@ -167,7 +190,7 @@ export class DiscordStats extends LitElement {
       .divider {
         width: 80%;
         height: 1px;
-        background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+        background: linear-gradient(to right, transparent, var(--neon-magenta), transparent);
       }
     }
   `;

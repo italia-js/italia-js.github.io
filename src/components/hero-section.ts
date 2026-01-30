@@ -5,17 +5,16 @@ import { customElement } from 'lit/decorators.js';
 export class HeroSection extends LitElement {
   render() {
     return html`
-      <div class="ring-container">
-        <div class="glowing-ring"></div>
+      <div class="hero-container">
+        <div class="hud-ring"></div>
+        <div class="hud-ring-inner"></div>
         <section class="hero">
-          <h1 class="title">Italia JS</h1>
-          <p class="slogan">La community JavaScript italiana</p>
+          <h1 class="title" data-text="ITALIA JS">ITALIA JS</h1>
+          <p class="slogan">LA COMMUNITY JAVASCRIPT ITALIANA</p>
           <div class="cta-container">
             <a href="https://discord.com/invite/3cQtvAK9" target="_blank" class="cta-button">
-             <svg class="discord-icon" width="40" height="40" viewBox="0 0 127.14 96.36" fill="white">
-                <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.11,77.11,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-              </svg> 
-              <span>Unisciti a Discord</span>
+              <span class="cta-text">Unisciti a Discord</span>
+              <div class="cta-glitch"></div>
             </a>
           </div>
         </section>
@@ -27,127 +26,169 @@ export class HeroSection extends LitElement {
     :host {
       display: block;
       text-align: center;
-      padding: 0; /* Removed padding to help with height */
       position: relative;
-      margin-top: 2vh;
+      margin-top: 5vh;
+      perspective: 1000px;
     }
 
-    .ring-container {
+    .hero-container {
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1vh 1rem;
+      padding: 4rem 1rem;
+      transform-style: preserve-3d;
     }
 
-    .glowing-ring {
+    /* HUD Rings */
+    .hud-ring, .hud-ring-inner {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: min(450px, 45vh);
-      height: min(450px, 45vh);
       border-radius: 50%;
-      border: 2px solid rgba(189, 0, 255, 0.3);
-      box-shadow: 0 0 50px rgba(189, 0, 255, 0.2), inset 0 0 50px rgba(189, 0, 255, 0.2);
-      z-index: -1;
+      border: 1px solid var(--neon-cyan);
+      opacity: 0.3;
       pointer-events: none;
-    }
-    
-    .glowing-ring::before {
-       content: '';
-       position: absolute;
-       inset: -2px;
-       border-radius: 50%;
-       background: conic-gradient(from 0deg, transparent, rgba(189, 0, 255, 0.8), transparent 60%);
-       animation: spin 10s linear infinite;
-       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-       mask-composite: exclude;
-       -webkit-mask-composite: xor;
-       padding: 2px;
+      z-index: -1;
     }
 
-    @media (max-width: 600px) {
-      .glowing-ring {
-        width: min(300px, 40vh);
-        height: min(300px, 40vh);
-      }
+    .hud-ring {
+      width: min(500px, 50vw);
+      height: min(500px, 50vw);
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      animation: spin 20s linear infinite;
+    }
+
+    .hud-ring-inner {
+      width: min(350px, 35vw);
+      height: min(350px, 35vw);
+      border: 1px dashed var(--neon-magenta);
+      animation: spin-reverse 15s linear infinite;
     }
 
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5vh;
+      gap: 1rem;
       z-index: 1;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
     .title {
-      font-size: min(5rem, 9vh);
-      font-weight: 800;
+      font-family: var(--font-display);
+      font-size: min(5rem, 10vw);
+      font-weight: 700;
       margin: 0;
-      background: linear-gradient(90deg, #60a5fa, #c084fc, #f472b6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      line-height: 1.1;
-      letter-spacing: -2px;
-      filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.4));
+      color: #fff;
+      position: relative;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: glitch-skew 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
     }
-    
-    @media (min-width: 768px) {
-      .title {
-        font-size: min(7rem, 12vh);
-      }
+
+    .title::before,
+    .title::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .title::before {
+      left: 2px;
+      text-shadow: -1px 0 var(--neon-magenta);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    .title::after {
+      left: -2px;
+      text-shadow: -1px 0 var(--neon-cyan);
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim2 5s infinite linear alternate-reverse;
     }
 
     .slogan {
-      font-size: min(1.5rem, 2.5vh);
-      color: #e2e8f0;
-      opacity: 0.9;
+      font-family: var(--font-body);
+      font-size: min(1.2rem, 3vw);
+      color: var(--text-muted);
       margin: 0;
-      font-weight: 300;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-left: 2px solid var(--neon-cyan);
+      border-right: 2px solid var(--neon-cyan);
+      padding: 0 1rem;
+      background: rgba(0, 240, 255, 0.05);
     }
 
     .cta-container {
-      margin-top: 2vh;
+      margin-top: 3rem;
     }
 
     .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem; /* Space between icon and text */
-      background: linear-gradient(135deg, #06b6d4, #3b82f6);
-      color: white;
-      padding: 0.75rem 2rem; /* Adjusted padding */
-      border-radius: 50px;
-      font-size: 1.25rem;
-      font-weight: 600;
+      position: relative;
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      color: var(--neon-cyan);
       text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      animation: pulse-glow 2s infinite ease-in-out;
+      font-family: var(--font-display);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid var(--neon-cyan);
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
     }
 
     .cta-button:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 0 40px rgba(6, 182, 212, 0.9);
-      filter: brightness(1.2);
-    }
-    
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      background: var(--neon-cyan);
+      color: #000;
+      box-shadow: 0 0 20px var(--neon-cyan);
+      transform: scale(1.05);
     }
 
-    @keyframes pulse-glow {
-      0% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.5); }
-      50% { box-shadow: 0 0 35px rgba(6, 182, 212, 0.9); }
-      100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.5); }
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes spin-reverse {
+      from { transform: translate(-50%, -50%) rotate(360deg); }
+      to { transform: translate(-50%, -50%) rotate(0deg); }
+    }
+
+    @keyframes glitch-anim {
+      0% { clip: rect(30px, 9999px, 10px, 0); }
+      20% { clip: rect(80px, 9999px, 90px, 0); }
+      40% { clip: rect(10px, 9999px, 50px, 0); }
+      60% { clip: rect(60px, 9999px, 20px, 0); }
+      80% { clip: rect(20px, 9999px, 80px, 0); }
+      100% { clip: rect(90px, 9999px, 30px, 0); }
+    }
+
+    @keyframes glitch-anim2 {
+      0% { clip: rect(10px, 9999px, 80px, 0); }
+      20% { clip: rect(40px, 9999px, 10px, 0); }
+      40% { clip: rect(90px, 9999px, 30px, 0); }
+      60% { clip: rect(20px, 9999px, 60px, 0); }
+      80% { clip: rect(70px, 9999px, 20px, 0); }
+      100% { clip: rect(30px, 9999px, 90px, 0); }
+    }
+
+    @keyframes glitch-skew {
+      0% { transform: skew(0deg); }
+      20% { transform: skew(-2deg); }
+      40% { transform: skew(2deg); }
+      60% { transform: skew(-1deg); }
+      80% { transform: skew(3deg); }
+      100% { transform: skew(0deg); }
     }
   `;
 }

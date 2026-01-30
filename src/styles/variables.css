@@ -1,21 +1,27 @@
 :root {
-  /* Brand Palette - Retained but shifted for Dark Mode dominance */
-  --color-jet: #323330;
-  --color-blue: #2e86ab;
-  --color-magenta: #a23b72;
-  --color-yellow: #f0db4f;
-  --color-red: #c73e1d;
-
-  /* Space Theme specific */
+  /* Italian Retro-Futurism Palette */
   --space-bg: #0b0d17;
-  --space-accent-cyan: #00ffff;
-  --space-accent-purple: #bd00ff;
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(255, 255, 255, 0.03);
-
-  /* Theme Defaults */
+  --neon-cyan: #00f0ff;
+  --neon-magenta: #ff003c;
+  --electric-green: #39ff14;
+  --deep-purple: #240046;
+  
+  /* Semantic Colors */
   --bg-color: var(--space-bg);
-  --text-color: #ffffff;
-  --primary-color: var(--space-accent-cyan);
-  --secondary-color: var(--space-accent-purple);
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --primary-color: var(--neon-cyan);
+  --secondary-color: var(--neon-magenta);
+  --accent-color: var(--electric-green);
+
+  /* Glassmorphism */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(11, 13, 23, 0.7);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --backdrop-blur: blur(10px);
+
+  /* Typography */
+  --font-display: 'Syncopate', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'Space Mono', monospace; /* Optional for code/stats */
 }
