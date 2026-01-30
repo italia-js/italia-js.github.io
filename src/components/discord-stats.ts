@@ -23,7 +23,7 @@ export class DiscordStats extends LitElement {
   async fetchDiscordStats() {
     try {
       // Using the invite code endpoint to get both counts
-      const response = await fetch('https://discord.com/api/v9/invites/3cQtvAK9?with_counts=true');
+      const response = await fetch('https://discord.com/api/v9/invites/CrHrweEaUg?with_counts=true');
       if (!response.ok) throw new Error('Failed to fetch stats');
 
       const data = await response.json();
