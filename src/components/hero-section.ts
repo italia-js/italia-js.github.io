@@ -13,7 +13,7 @@ export class HeroSection extends LitElement {
           <p class="slogan">LA COMMUNITY JAVASCRIPT ITALIANA</p>
           <div class="cta-container">
             <a href="https://discord.com/invite/CrHrweEaUg" target="_blank" class="cta-button">
-              <span class="cta-text">Unisciti a Discord</span>
+              <span class="cta-text">Partecipa su Discord</span>
               <div class="cta-glitch"></div>
             </a>
           </div>
