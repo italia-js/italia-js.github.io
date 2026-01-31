@@ -155,6 +155,7 @@ export class DiscordStats extends LitElement {
       margin-top: 0.8rem;
       color: var(--text-muted);
       font-weight: 500;
+      white-space: nowrap;
     }
 
     .divider {
